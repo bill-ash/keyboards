@@ -84,7 +84,6 @@ module my_board() {
 
                     translate([-175, 0, 0])
                     cube([20, 25, 25]);
-
                     
                 }   
                 translate([75, 0, 0])
@@ -164,52 +163,52 @@ union() {
                 }
             }
     }
-                // Fill gaps 
-                // top right
-                color([1,0,0])
-                translate([142, 44, 10])
-                cube([6, 5, 10]);
-                
-                // Bottom right
-                color([1,0,0])
-                color([1,0,0])
-                translate([139.4, -76, 10])
-                cube([10, 1.9, 10]);
-                
-                
-                // top left
-                mirror([1,0,0])
-                color([1,0,0])
-                translate([149, 44, 10])
-                cube([6, 5, 10]);
-                
-                // Bottom Left 
-                mirror([1,0,0])
-                color([1,0,0])
-                translate([146.2, -76, 10])
-                cube([10, 1.9, 10]);
+        // Fill corner gaps 
+        // top right
+        color([1,0,0])
+        translate([142, 44, 10])
+        cube([6, 5, 10]);
+        
+        // Bottom right
+        color([1,0,0])
+        color([1,0,0])
+        translate([139.4, -76, 10])
+        cube([10, 1.9, 10]);
+        
+        
+        // top left
+        mirror([1,0,0])
+        color([1,0,0])
+        translate([149, 44, 10])
+        cube([6, 5, 10]);
+        
+        // Bottom Left 
+        mirror([1,0,0])
+        color([1,0,0])
+        translate([146.2, -76, 10])
+        cube([10, 1.9, 10]);
                 
 
-translate([5, 0, 0])
-difference() {
-    my_board();
-    translate([-161.2, -76, 0])
-    cube([320, 120, 30]);
-    
-    translate([-120, -90, 0])
-    cube([320, 150, 30]);
-}
+    translate([5, 0, 0])
+    difference() {
+        my_board();
+        translate([-161.2, -76, 0])
+        cube([320, 120, 30]);
+        
+        translate([-120, -90, 0])
+        cube([320, 150, 30]);
+    }
 
-mirror([1,0,0])
-translate([11.8, 0, 0])
-difference() {
-    my_board();
-    translate([-161.2, -76, 0])
-    cube([320, 120, 30]);
-    
-    translate([-120, -90, 0])
-    cube([320, 150, 30]);
-}
+    mirror([1,0,0])
+    translate([11.8, 0, 0])
+    difference() {
+        my_board();
+        translate([-161.2, -76, 0])
+        cube([320, 120, 30]);
+        
+        translate([-120, -90, 0])
+        cube([320, 150, 30]);
+    }
 
 
 
