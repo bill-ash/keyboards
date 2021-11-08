@@ -80,7 +80,7 @@ keyboard.keymap = [
         KC.TAB,  KC.Q, KC.W, KC.E, KC.R, KC.T, KC.Y, KC.U, KC.I, KC.O, KC.P, KC.LBRC, KC.RBRC, KC.BSLS, PRINT,
         KC.CAPS,  KC.A, KC.S, KC.D, KC.F, KC.G, KC.H, KC.J, KC.K, KC.L, KC.SCLN, KC.QUOT, nokey, KC.ENTER, KC.AUDIO_VOL_UP, 
         nokey, nokey, nokey, nokey, nokey, nokey, nokey, nokey, nokey, nokey, nokey, nokey, KC.RSHIFT, KC.MEDIA_PLAY_PAUSE, KC.AUDIO_VOL_DOWN,
-        KC.LCTL, KC.LGUI, KC.LALT, nokey, nokey,  KC.SPC, nokey, nokey, nokey, KC.RCTRL, KC.MO(1), KC.MO(0), KC.MEDIA_REWIND, KC.DOWN, KC.MEDIA_FAST_FORWARD,
+        KC.LCTL, KC.LGUI, KC.LALT, nokey, nokey,  KC.SPC, nokey, nokey, nokey, KC.TG(1), KC.TG(0), KC.MO(0), KC.MEDIA_REWIND, KC.DOWN, KC.MEDIA_FAST_FORWARD,
     ],
     
 ]
