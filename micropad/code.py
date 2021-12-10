@@ -8,22 +8,22 @@ from kmk.handlers.sequences import send_string, simple_key_sequence
 
 keyboard = KMKKeyboard()
 
-# Left Side
-keyboard.col_pins = (
-    board.GP15,board.GP13,board.GP10,
+# right Side
+keyboard.row_pins = (
+    board.GP10,
+    board.GP13,
+    board.GP15,
     )
 
-# Right Side
-keyboard.row_pins = (
-    board.GP21,
-    board.GP18,
-    board.GP16,
+# left Side
+keyboard.col_pins = (
+    board.GP16, board.GP18, board.GP21,
     )
 
 keyboard.diode_orientation = DiodeOrientation.COL2ROW
 
-# layers_ext = Layers()
-# keyboard.modules = [layers_ext]
+layers_ext = Layers()
+keyboard.modules = [layers_ext]
 
 
 # MAC 
@@ -39,15 +39,53 @@ ZOOM_SCHEDULE = KC.LCMD(KC.J)
 ZOOM_RAISE_HAND = KC.LALT(KC.Y)
 
 ZOOM_LEAVE_SEQ = simple_key_sequence((KC.LCMD(KC.W), KC.ENTER))
-ZOOM_START_SEQ = simple_key_sequence((SPOTLIGHT, ZOOM_STRING, KC.ENTER, START_ZOOM_MEETING,ZOOM_INVITE))
+ZOOM_START_SEQ = simple_key_sequence((SPOTLIGHT, ZOOM_STRING, KC.ENTER, START_ZOOM_MEETING, ZOOM_INVITE))
 ZOOM_SCHEDULE_SEQ = simple_key_sequence((SPOTLIGHT, ZOOM_STRING, KC.ENTER, ZOOM_SCHEDULE))
 
+
+#  Windows
+W_SPOTLIGHT = KC.LGUI
+W_ZOOM_FOCUS = KC.LCTRL(KC.LALT(KC.LSHIFT))
+
+W_ZOOM_TOGGLE_CONTROL = KC.LALT
+W_ZOOM_CLOSE = KC.LALT(KC.F4)
+W_ZOOM_VIDEO = KC.LALT(KC.V)
+W_ZOOM_MUTE = KC.LALT(KC.A)
+W_ZOOM_SCREEN_SHARE = KC.LALT(KC.LSHIFT(KC.S))
+W_ZOOM_SWITCH_CAMERA = KC.LALT(KC.N)
+W_ZOOM_FULL = KC.LALT(KC.F)
+W_ZOOM_CHAT = KC.LALT(KC.H)
+W_ZOOM_INVITE = KC.LALT(KC.I)
+W_ZOOM_RAISE_HAND = KC.LALT(KC.Y)
+
+# W_ZOOM_TOGGLE_CONTROLS = KC.LCTRL(KC.LALT(KC.LSHIFT(KC.H)))
+
+W_ZOOM_START_SEQ = simple_key_sequence((W_SPOTLIGHT, W_SPOTLIGHT, KC.SPACE, ZOOM_STRING, KC.ENTER, KC.ENTER))
+W_ZOOM_LEAVE_SEQ = simple_key_sequence((W_ZOOM_CLOSE, KC.ENTER))
+
+W_TOGGLE_LAYER = KC.TD(
+    W_ZOOM_START_SEQ, 
+    KC.TG(1)
+    )
+
+TOGGLE_LAYER = KC.TD(
+    ZOOM_START_SEQ, 
+    KC.TG(0)
+    )
+
 keyboard.keymap = [
+    # layer 0 
     [
-        ZOOM_START_SEQ, ZOOM_VIDEO, ZOOM_MUTE,
+        W_TOGGLE_LAYER, W_ZOOM_VIDEO, W_ZOOM_MUTE,
+        W_ZOOM_INVITE,  W_ZOOM_SCREEN_SHARE, W_ZOOM_LEAVE_SEQ,
+        W_ZOOM_TOGGLE_CONTROL, W_ZOOM_RAISE_HAND, W_ZOOM_FULL,
+    ],
+    # layer 1 
+    [
+        TOGGLE_LAYER, ZOOM_VIDEO, ZOOM_MUTE,
         ZOOM_INVITE,  ZOOM_SCREEN_SHARE, ZOOM_LEAVE_SEQ,
         ZOOM_SCHEDULE_SEQ, ZOOM_RAISE_HAND, ZOOM_FULL,
-    ]
+    ],
 ]
 
 if __name__ == '__main__':
